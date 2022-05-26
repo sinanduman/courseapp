@@ -1,21 +1,26 @@
 package tr.com.turktelekom.boot.courseapp;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table("COURSE")
 public class Course {
-    private String id;
+    @Id
+    private Integer id;
     private String name;
 
     public Course() {}
 
-    public Course(String id, String name) {
+    public Course(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

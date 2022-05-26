@@ -9,9 +9,9 @@ import java.util.Map;
 
 @RestController
 public class CourseController {
-    Map<String, Course> courseMap = new HashMap<>() {{
-        put("1", new Course("1", "Java"));
-        put("2", new Course("2", "Rust"));
+    Map<Integer, Course> courseMap = new HashMap<>() {{
+        put(1, new Course(1, "Java"));
+        put(2, new Course(2, "Rust"));
     }};
 
     private static String API_URL = "https://api.genderize.io/?name=";
@@ -22,7 +22,7 @@ public class CourseController {
     }
 
     @GetMapping("/course/{id}")
-    public Course getCourseById(@PathVariable String id) {
+    public Course getCourseById(@PathVariable Integer id) {
         return courseMap.get(id);
     }
 
@@ -32,7 +32,7 @@ public class CourseController {
     }
 
     @DeleteMapping("/course/{id}")
-    public void deleteCourse(@PathVariable String id) {
+    public void deleteCourse(@PathVariable Integer id) {
         courseMap.remove(id);
     }
 
